@@ -20,9 +20,37 @@
 <html>
 <head>
 <meta charset="UTF-8">
-		<title>The X-Men Collection!</title>
+		<title>Student</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+
+}
+</style>      
+        
 	</head>
 	<body>
+    <table>
+    <tr>
+    <th>StudentID</th>
+    <th>Name</th>
+    <th>Year Enrolled</th>
+    <th>Project Number</th>
+    <th>Serial Number</th>
+    <th>School</th>
+    </tr>
+    
 <?php 
 	$sql = "SELECT * FROM student "; //Remember spacing! If not SQL string will be stuck tog.
 	$result = $connection->query($sql);
@@ -31,9 +59,12 @@
      // output data of each row
     
      while($row = mysqli_fetch_assoc($result)) {
-         echo $row["student_id"]."<br/>";
-         echo $row["name"]."<br/>";
-         echo $row["school"]."<br/>";
+        echo "<tr><td>".$row["student_id"]."</td>";
+        echo "<td>".$row["name"]."</td>";
+        echo "<td>".$row["year_enrolled"]."</td>";
+        echo "<td>".$row["project_number"]."</td>";
+        echo "<td>".$row["serial_number"]."</td>";
+        echo "<td>".$row["school"]."</td></tr>";
          
      }
 } 	else {
@@ -42,6 +73,7 @@
 
 	}
 	?>
+    </table>
 	</body>
 </html>
 
