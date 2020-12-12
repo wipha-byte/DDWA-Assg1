@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
   // 1. Create a database connection
   $dbhost = "localhost";
   $dbuser = "root";
@@ -52,7 +55,8 @@ tr:nth-child(even) {
     </tr>
     
 <?php 
-	$sql = "SELECT * FROM student "; //Remember spacing! If not SQL string will be stuck tog.
+    $stud_id = $_SESSION["id"];
+	$sql = "SELECT * FROM student WHERE student_id = $stud_id "; //Remember spacing! If not SQL string will be stuck tog.
 	$result = $connection->query($sql);
 	
 	if ($result->num_rows > 0) {
@@ -73,7 +77,17 @@ tr:nth-child(even) {
 
 	}
 	?>
-    </table>
+    <!-- </table>
+    <table>
+    <tr>
+    <th>StudentID</th>
+    <th>Name</th>
+    <th>Year Enrolled</th>
+    <th>Project Number</th>
+    <th>Serial Number</th>
+    <th>School</th>
+    </tr>
+    </table> -->
 	</body>
 </html>
 
