@@ -65,6 +65,9 @@ input[type=submit]:hover {
    
   <body>
   <?php
+  //Password for student = student
+  //Password for staff = staff
+  //Password for admin = admin
   
   if(isset($_GET["submitBtn"])){
       $_SESSION["id"] = $_GET["username"];
@@ -73,8 +76,8 @@ input[type=submit]:hover {
         }else if ($_GET["username"] != "" && $_GET["password"] == "staff" && $_GET["account"]=="2"){
             header("Location: lecturer.php");
         }
-        else if($_GET["username"] == "admin" && $_GET["password"] == "password" && $_GET["account"]=="3"){
-            header("Location: lecturer.php");
+        else if($_GET["username"] != "" && $_GET["password"] == "admin" && $_GET["account"]=="3"){
+            header("Location: admin.php");
         }
         else if($_GET["username"] == "" && $_GET["password"] == ""){
             echo "<div class=\"invalid\">Please enter your username and Password </div>";
@@ -95,7 +98,7 @@ input[type=submit]:hover {
   <option value="1">student</option>
   <option value="2">staff</option>
   <option value="3">admin</option>
-</select>><br /><br />
+</select><br /><br />
 
   <label for="username">Username:</label>
   <input type="text" name="username" id="username" /><br /><br />
