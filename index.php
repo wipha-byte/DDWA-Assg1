@@ -70,8 +70,8 @@ input[type=submit]:hover {
       $_SESSION["id"] = $_GET["username"];
       if($_GET["username"] != "" && $_GET["password"] == "student" && $_GET["account"]=="1"){
         header("Location: student.php");
-        }else if ($_GET["username"] == "lecturer" && $_GET["password"] == "password" && $_GET["account"]=="2"){
-            header("Location: admin.php");
+        }else if ($_GET["username"] != "" && $_GET["password"] == "staff" && $_GET["account"]=="2"){
+            header("Location: lecturer.php");
         }
         else if($_GET["username"] == "admin" && $_GET["password"] == "password" && $_GET["account"]=="3"){
             header("Location: lecturer.php");
